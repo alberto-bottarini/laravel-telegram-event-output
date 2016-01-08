@@ -1,0 +1,19 @@
+{
+    "name": "alberto-bottarini/laravel-telegram-event-output",
+    "description": "Laravel extension to send command output through telegram bots",
+    "license": "Apache License 2.0",
+    "authors": [
+        {
+            "name": "alberto-bottarini",
+            "email": "alberto.bottarini@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+	        "AlbertoBottarini\\LaravelTelegramEventOutput": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": ">5.5.0"
+    }
+}
