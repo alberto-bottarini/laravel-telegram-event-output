@@ -9,7 +9,7 @@ use Config;
 class TelegramEvent extends Event
 {
 
-    public function telegramOutputTo() {
+    public function telegramOutputTo($chatId) {
 
         if (is_null($this->output) || $this->output == $this->getDefaultOutput()) {
             throw new LogicException('Must direct output to a file in order to telegram results.');
@@ -19,7 +19,7 @@ class TelegramEvent extends Event
             $contents = "*" . $this->description . "*" . PHP_EOL;
             $contents .= file_get_contents($this->output);
             Telegram::sendMessage([
-                'chat_id' => Config::get('telegram-output.chatId');,
+                'chat_id' => $chatId,
                 'text' => $contents,
                 'parse_mode' => 'Markdown'
             ]);
