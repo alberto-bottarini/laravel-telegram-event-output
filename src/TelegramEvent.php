@@ -15,7 +15,7 @@ class TelegramEvent extends Event
             throw new LogicException('Must direct output to a file in order to telegram results.');
         }
 
-        return $this->then(function () {
+        return $this->then(function () use($chatId) {
             $contents = "*" . $this->description . "*" . PHP_EOL;
             $contents .= file_get_contents($this->output);
             Telegram::sendMessage([
