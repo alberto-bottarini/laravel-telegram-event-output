@@ -30,7 +30,7 @@ Publish telegram configuration executing:
 php artisan vendor:publish --provider=irazasyed/telegram-bot-sdk
 ```
     
-Edit `config/telegram.php` or `.env` and add your Telegram chat id. This will be the chat/group that will receive Laravel notification.
+Edit `config/telegram.php` or `.env` and add your Telegram API token id. This will be provided by BotFather. [Here](https://core.telegram.org/bots) you can find some documentation.
     
 Improve your `App\Console\Kernel` with a new Trait:
 
@@ -40,7 +40,7 @@ use \AlbertoBottarini\LaravelTelegramEventOutput\TelegramConsoleKernel;
      
 ## usage
 
-Thanks to the trait, from this moment, your ConsoleEvent presents a new method: `telegramOutputTo` that should call in the same way you call `emailOutputTo`.
+Thanks to the trait, from this moment, your ConsoleEvent presents a new method: `telegramOutputTo` that should call in the same way you call `emailOutputTo`. This method accept a required parameter `chatId`. This will be the id of the chat/group where you want to receive the command notification. You can obtain this using getUpdates BOT command ([documentation](https://core.telegram.org/bots/api)).
 
 ## example
 
