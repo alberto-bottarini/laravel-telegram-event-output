@@ -9,27 +9,44 @@ Laravel extension to send command output trough telegram bots
 
 Download using composer:
 
-    composer require alberto-bottarini/laravel-telegram-event-output
+```bash
+composer require alberto-bottarini/laravel-telegram-event-output
+```
     
 Edit `config/app.php` and add a new ServiceProvider:
-
-    Telegram\Bot\Laravel\TelegramServiceProvider::class
+```php
+Telegram\Bot\Laravel\TelegramServiceProvider::class
+```
     
 and a new Alias:
 
-    'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class
+```php
+'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class
+```
     
 Publish telegram configuration executing:
 
-    php artisan vendor:publish --provider=irazasyed/telegram-bot-sdk
+```php
+php artisan vendor:publish --provider=irazasyed/telegram-bot-sdk
+```
     
 Edit `config/telegram.php` or `.env` and add your Telegram chat id. This will be the chat/group that will receive Laravel notification.
     
 Improve your `App\Console\Kernel` with a new Trait:
 
-     use \AlbertoBottarini\LaravelTelegramEventOutput\TelegramConsoleKernel;
+```php
+use \AlbertoBottarini\LaravelTelegramEventOutput\TelegramConsoleKernel;
+```
      
 ## usage
 
 Thanks to the trait, from this moment, your ConsoleEvent presents a new method: `telegramOutputTo` that should call in the same way you call `emailOutputTo`.
 
+## example
+
+```php
+$telegramChatId = 1234567890;
+$schedule->command('inspire')->cron('* * * * *')
+    ->sendOutputTo(storage_path('logs/test.log'))
+    ->telegramOutputTo($telegramChatId);
+```
