@@ -1,11 +1,11 @@
 # laravel-telegram-event-output
 Laravel extension to send command output trough telegram bots
 
-**requirements**
+## requirements
 
 `laravel-telegram-event-output` requires another Laravel extension: [irazasyed/telegram-bot-sdk](https://github.com/irazasyed/telegram-bot-sdk). This requirement is managed by Composer and you should don't care for it. Although this, some configurations of `telegram-bot-sdk` are required.
 
-**installation**
+## installation
 
 Download using composer:
 
@@ -29,7 +29,7 @@ Improve your `App\Console\Kernel` with a new Trait:
 
      use \AlbertoBottarini\LaravelTelegramEventOutput\TelegramConsoleKernel;
      
-**usage**
+## usage
 
 Thanks to the trait, from this moment, your ConsoleEvent presents a new method: `telegramOutputTo` that should call in the same way you call `emailOutputTo`.
 
