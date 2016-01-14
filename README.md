@@ -9,7 +9,7 @@ Laravel extension to send command output trough telegram bots
 
 Download using composer:
 
-```bash
+```shell
 composer require alberto-bottarini/laravel-telegram-event-output
 ```
     
@@ -26,7 +26,7 @@ and a new Alias:
     
 Publish telegram configuration executing:
 
-```php
+```shell
 php artisan vendor:publish --provider=irazasyed/telegram-bot-sdk
 ```
     
